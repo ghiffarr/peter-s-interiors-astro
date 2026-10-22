@@ -9,9 +9,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "organize:webflow": "node scripts/organize-webflow-source.mjs",
+    "audit:assets": "node scripts/audit-local-assets.mjs"
   },
   "dependencies": {
     "astro": "^7.4.2"
+  },
+  "devDependencies": {
+    "parse5": "7.3.0"
   }
 }

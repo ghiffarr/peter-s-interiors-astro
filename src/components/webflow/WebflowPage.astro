@@ -1,0 +1,27 @@
+---
+interface Props {
+	page: string;
+}
+
+const { page } = Astro.props;
+const fragmentModules = import.meta.glob<string>("../../content/pages/**/*.html", {
+	eager: true,
+	query: "?raw",
+	import: "default",
+});
+const pagePrefix = `../../content/pages/${page}/`;
+const fragments = Object.entries(fragmentModules)
+	.filter(([path]) => path.startsWith(pagePrefix))
+	.sort(([left], [right]) => left.localeCompare(right));
+
+if (!fragments.length) {
+	throw new Error(`Missing organized Webflow page: ${page}`);
+}
+
+// Fragments are numbered in document order. Joining them preserves the exact
+// exported document while keeping each editable section in its own file.
+const document = fragments.map(([, contents]) => contents).join("");
+
+---
+
+<Fragment set:html={document} />

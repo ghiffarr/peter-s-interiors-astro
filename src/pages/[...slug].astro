@@ -1,0 +1,11 @@
+---
+import WebflowPage from "../components/webflow/WebflowPage.astro";
+import manifest from "../content/pages/manifest.json";
+export function getStaticPaths() {
+  return manifest.pages.filter(({ source }) => !["index.html", "404.html"].includes(source))
+    .map(({ page, source }) => ({ params: { slug: source.replace(/\.html$/, "") }, props: { page } }));
+}
+interface Props { page: string; }
+const { page } = Astro.props;
+---
+<WebflowPage page={page} />

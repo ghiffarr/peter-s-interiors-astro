@@ -1,0 +1,77 @@
+{
+  "generatedFrom": "src/webflow-source/original-pages",
+  "pages": [
+    {
+      "page": "unauthorized",
+      "source": "401.html",
+      "sections": 0,
+      "fragments": 9
+    },
+    {
+      "page": "not-found",
+      "source": "404.html",
+      "sections": 0,
+      "fragments": 9
+    },
+    {
+      "page": "about",
+      "source": "about.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "ardita-home",
+      "source": "ardita-home.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "boxwood-home",
+      "source": "boxwood-home.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "contact",
+      "source": "contact.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "davis-home",
+      "source": "davis-home.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "garrido-home",
+      "source": "garrido-home.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "home",
+      "source": "index.html",
+      "sections": 0,
+      "fragments": 7
+    },
+    {
+      "page": "services",
+      "source": "services.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "style-guide",
+      "source": "style-guide.html",
+      "sections": 0,
+      "fragments": 11
+    },
+    {
+      "page": "various-designs",
+      "source": "various-designs.html",
+      "sections": 0,
+      "fragments": 11
+    }
+  ]
+}

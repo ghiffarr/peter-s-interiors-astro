@@ -1,43 +1,45 @@
-# Astro Starter Kit: Minimal
+# Peters Interiors — Astro
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Faithful migration of the supplied Webflow export, organized like Max Space Astro.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Development
 
-## 🚀 Project Structure
+- `npm install`
+- `npm run dev -- --background`
+- `npm run astro -- dev status` / `dev logs` / `dev stop`
+- `npm run build` builds the static site to `dist/`.
+- `npm run preview` previews that production build.
+- `npm run audit:assets` checks local asset references.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Organization
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+| Location | Purpose |
+| --- | --- |
+| `src/pages/` | Home, custom 404, and manifest-driven static routes |
+| `src/components/webflow/WebflowPage.astro` | Shared document renderer |
+| `src/content/pages/<page>/` | Editable numbered HTML sections in document order |
+| `src/content/pages/manifest.json` | Source-to-page mapping |
+| `public/assets/webflow/images/` | Original images and responsive variants |
+| `public/assets/webflow/styles/` | Exported global stylesheets |
+| `public/assets/webflow/scripts/` | Exported interactions runtime |
+| `src/webflow-source/original-pages/` | Untouched original HTML snapshot |
+| `scripts/` | Source organizer and asset audit |
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Edit numbered fragments under `src/content/pages/`, not the preserved originals.
+`npm run organize:webflow -- --force` regenerates all fragments and discards edits
+in them. Original markup, Webflow IDs, metadata, responsive styles, galleries,
+and interaction scripts are retained. Local links use clean Astro routes.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Routes
 
-Any static assets, like images, can be placed in the `public/` directory.
+`/`, `/about`, `/contact`, `/services`, `/garrido-home`, `/ardita-home`,
+`/boxwood-home`, `/davis-home`, `/various-designs`, `/style-guide`, `/401`,
+and the custom `404.html`.
 
-## 🧞 Commands
+## Export limitations
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The contact form uses Webflow hosted submission handling. Delivery is not verified
+and needs a supported form backend before production use. The exported `/401`
+page is a visual template; its Webflow authentication endpoint does not provide
+password protection on this static Astro site. Google Fonts, WebFont Loader,
+and jQuery still load from their original external providers.
